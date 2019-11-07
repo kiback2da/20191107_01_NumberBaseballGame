@@ -24,6 +24,8 @@ class ChatAdapter(context:Context, res:Int, list:ArrayList<ChatData>) : ArrayAda
 
         var row = tempRow!!
 
+
+
         return row
     }
 
