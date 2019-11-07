@@ -1,6 +1,7 @@
 package com.tjoeun.a20191107_01_numberbaseballgame.adapter
 
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +30,12 @@ class ChatAdapter(context:Context, res:Int, list:ArrayList<ChatData>) : ArrayAda
         var contentTxt = row.findViewById<TextView>(R.id.contentTxt)
         contentTxt.text = data.dMessage
 
-
-
+        var loc = data.dSpeaker
+        if(loc == "CPU"){
+            contentTxt.gravity = Gravity.LEFT
+        }else{
+            contentTxt.gravity = Gravity.RIGHT
+        }
         return row
     }
 
