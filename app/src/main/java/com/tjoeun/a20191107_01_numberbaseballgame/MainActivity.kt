@@ -35,10 +35,6 @@ class MainActivity : BaseActivity() {
                 break
             }
         }
-
-        for(num in questionNumberArray){
-            Log.d("로그",num.toString())
-        }
     }
 
     override fun setValues() {
@@ -48,11 +44,22 @@ class MainActivity : BaseActivity() {
 
     fun checkAnswer(){
 
+        var strikeCnt = 0
+        var ballCnt = 0
+
         for(i in 0..2){
             for(j in 0..2){
-
+                if(userInputNumberArray.get(i) == questionNumberArray.get(j)){
+                    if(i == j){
+                        strikeCnt++
+                    }else{
+                        ballCnt++
+                    }
+                }
             }
         }
+
+
     }
 
     override fun setupEvents() {
