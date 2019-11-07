@@ -2,6 +2,7 @@ package com.tjoeun.a20191107_01_numberbaseballgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import com.tjoeun.a20191107_01_numberbaseballgame.adapter.ChatAdapter
 import com.tjoeun.a20191107_01_numberbaseballgame.datas.ChatData
@@ -80,8 +81,10 @@ class MainActivity : BaseActivity() {
             userInputNumberArray.add(inputNum.toInt()/10%10) //두번째 숫자 추출
             userInputNumberArray.add(inputNum.toInt()%10) //마지막 숫자 추출
 
-            chatListView.smoothScrollToPosition(chatList.size-1)
-            checkAnswer()
+            Handler().postDelayed({
+                chatListView.smoothScrollToPosition(chatList.size-1)
+                checkAnswer()
+            },1000)
         }
     }
 }
