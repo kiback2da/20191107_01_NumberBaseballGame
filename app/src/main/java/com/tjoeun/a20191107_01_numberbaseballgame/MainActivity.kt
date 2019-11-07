@@ -11,6 +11,8 @@ import kotlin.random.Random
 class MainActivity : BaseActivity() {
 
     var questionNumberArray = ArrayList<Int>()
+    var userInputNumberArray = ArrayList<Int>()
+
     var chatList = ArrayList<ChatData>()
     var chatAdapter:ChatAdapter? = null
 
@@ -44,12 +46,28 @@ class MainActivity : BaseActivity() {
         chatListView.adapter = chatAdapter
     }
 
+    fun checkAnswer(){
+
+        for(i in 0..2){
+            for(j in 0..2){
+
+            }
+        }
+    }
+
     override fun setupEvents() {
         inputBtn.setOnClickListener {
             var inputNum = inputEdt.text.toString()
             chatList.add(ChatData(inputNum,"ME"))
             chatAdapter?.notifyDataSetChanged()
+
+            userInputNumberArray.clear()
+            userInputNumberArray.add(inputNum.toInt()/100) //맨 앞 숫자 추출
+            userInputNumberArray.add(inputNum.toInt()/10%10) //두번째 숫자 추출
+            userInputNumberArray.add(inputNum.toInt()%10) //마지막 숫자 추출
+
             chatListView.smoothScrollToPosition(chatList.size-1)
+            checkAnswer()
         }
     }
 }
