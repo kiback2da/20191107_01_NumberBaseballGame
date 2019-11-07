@@ -29,6 +29,8 @@ class ChatAdapter(context:Context, res:Int, list:ArrayList<ChatData>) : ArrayAda
         var contentTxt = row.findViewById<TextView>(R.id.contentTxt)
         contentTxt.text = data.dMessage
 
+
+
         return row
     }
 

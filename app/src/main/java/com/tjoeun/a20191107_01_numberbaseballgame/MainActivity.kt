@@ -31,6 +31,8 @@ class MainActivity : BaseActivity() {
                 questionNumberArray.add(number)
             }
 
+            Log.d("로그",number.toString())
+
             if(questionNumberArray.size == 3) {
                 break
             }
@@ -59,7 +61,12 @@ class MainActivity : BaseActivity() {
             }
         }
 
+        if(strikeCnt == 3){
+            chatList.add(ChatData("축하합니다. 정답니다.","CPU"))
+        }
 
+        chatList.add(ChatData("${strikeCnt}S ${ballCnt}B","CPU"))
+        chatAdapter?.notifyDataSetChanged()
     }
 
     override fun setupEvents() {
